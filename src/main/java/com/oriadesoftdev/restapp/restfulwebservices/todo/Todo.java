@@ -1,12 +1,19 @@
 package com.oriadesoftdev.restapp.restfulwebservices.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
 public class Todo {
-    private int id;
+
+    @Id
+    @GeneratedValue
+    private Integer id;
     private String username;
 
     @Size(min=10, message = "Enter at least 10 characters")
@@ -18,7 +25,7 @@ public class Todo {
 
     }
 
-    public Todo(int id, String username, String description, LocalDate targetDate, boolean isCompleted) {
+    public Todo(Integer id, String username, String description, LocalDate targetDate, boolean isCompleted) {
         this.id = id;
         this.username = username;
         this.description = description;
@@ -30,7 +37,7 @@ public class Todo {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
